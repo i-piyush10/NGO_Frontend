@@ -2,13 +2,13 @@
 
 ## Project Overview
 
-This project is a front-end web application for Sahyog, a community-driven NGO based in Kothri Kalan, Madhya Pradesh, India. The website is designed as a foundational digital presence to inform the public about the organization's mission, showcase its impact, and provide clear avenues for community members and supporters to get involved. The name "Sahyog" is a Hindi word meaning "cooperation" or "collaboration," reflecting the core principle of the NGO's work.
+This project is a front-end web application for Sahyog, a community-driven NGO. The website is designed as a foundational digital presence to inform the public about the organization's mission, showcase its impact, and provide clear avenues for community members and supporters to get involved. The name "Sahyog" is a Hindi word meaning "cooperation" or "collaboration," reflecting the core principle of the NGO's work.
 
 ---
 
 ## Features
 
-* **Community-Focused Design:** The layout and content are tailored to the local context of Kothri Kalan, highlighting the NGO's work on the ground.
+* **Community-Focused Design:** The layout and content are tailored to highlight the NGO's work on the ground.
 * **Responsive Design:** The website is built to provide a seamless viewing experience across various devices, from desktops to mobile phones.
 * **Clear Navigation:** A simple, sticky header with smooth-scrolling links allows for intuitive and easy navigation between different sections of the site.
 * **Informative Sections:** The content is organized into key sections: "About Us" (the mission and history), "What We Do" (the programs), "Our Impact" (the results), and "Get Involved" (volunteer opportunities).
