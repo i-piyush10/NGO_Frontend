@@ -1,0 +1,442 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #388e3c; /* A strong, friendly green */
+    --secondary-color: #ffb74d; /* A warm, complementary accent orange */
+    --text-color: #444; /* Dark gray for readability */
+    --light-gray: #f5f5f5; /* Light background tone */
+    --white: #ffffff;
+    --shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-gray);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+/* --- Header & Navigation --- */
+.header {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    font-weight: 500;
+    padding: 0.5rem 0;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    height: 70vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    overflow: hidden; /* This hides any overflow from the images */
+}
+
+/* The slideshow container */
+.hero-slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Styles for each image in the slideshow */
+.slideshow-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0; /* All images start invisible */
+    animation: imageFade 12s infinite; /* The animation lasts 18s and repeats forever */
+}
+
+.slideshow-image:nth-child(1) { animation-delay: 0s; }
+.slideshow-image:nth-child(2) { animation-delay: 4s; } /* Fades in after 6 seconds */
+.slideshow-image:nth-child(3) { animation-delay: 8s; } /* Fades in after 12 seconds */
+
+/* The semi-transparent overlay */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1; /* Make sure this is above the slideshow images */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Make sure this is above the overlay */
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.hero-content h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ff9800;
+    transform: translateY(-3px);
+}
+
+.section {
+    padding: 5rem 0;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-description {
+    text-align: center;
+    max-width: 700px;
+    margin: -2rem auto 3rem;
+    font-size: 1.1rem;
+}
+
+/* --- About Us Section --- */
+.about-us-section {
+    background-color: var(--white);
+    text-align: center;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+/* --- What We Do Section --- */
+.what-we-do-section {
+    background-color: var(--light-gray);
+}
+
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.program-card {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.program-card:hover {
+    transform: translateY(-10px);
+}
+
+.program-card h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.program-card:hover h3 {
+    color: var(--primary-color);
+}
+
+.program-card p {
+    color: #666;
+}
+
+.impact-section {
+    background-color: var(--white);
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.impact-card {
+    background-color: var(--light-gray);
+    box-shadow: var(--shadow);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.impact-card:hover {
+    background-color: var(--primary-color);
+}
+
+.impact-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.impact-card:hover i {
+    color: var(--white);
+}
+
+.impact-card h3 {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+}
+
+.impact-card:hover h3 {
+    color: var(--white);
+}
+
+.impact-card p {
+    transition: color 0.3s ease;
+}
+
+.impact-card:hover p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- Get Involved Section --- */
+.get-involved-section {
+    background-color: var(--light-gray);
+}
+
+.volunteer-form-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.volunteer-form h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.volunteer-form label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.volunteer-form input,
+.volunteer-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #2e7d32;
+    transform: translateY(-3px);
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    opacity: 0.8;
+}
+
+/* --- Keyframe Animation for Slideshow --- */
+@keyframes imageFade {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    33.33% { opacity: 1; }
+    53.33% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .nav-links.active {
+        max-height: 300px;
+    }
+    
+    .nav-links li {
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem;
+        color: var(--text-color);
+    }
+    
+    .nav-links a:hover {
+        background-color: var(--light-gray);
+        border-bottom: none;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+    
+    .program-card {
+        padding: 1.5rem;
+    }
+}
