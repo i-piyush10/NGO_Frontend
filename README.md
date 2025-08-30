@@ -54,4 +54,4 @@ Feel free to fork this repository, make improvements, and submit pull requests.
 
 ## Author
 
-* Piyush (i-piyush10)
+* Piyush Raj (https://github.com/i-piyush10)
